@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotor de Classe de Associação</title>
+    <link rel="stylesheet" href="style-associacao.css">
+</head>
+<body>
+    <header>
+        <h1>Promotor de Classe de Associação</h1>
+        <p>Adicione atributos ao vínculo entre classes e veja quando ele deve virar uma classe!</p>
+    </header>
+
+    <main>
+        <!-- Painel de Controle -->
+        <div class="controls">
+            <div class="input-group">
+                <input type="text" id="classNameA" placeholder="Classe A (ex: Paciente)">
+                <input type="text" id="classNameB" placeholder="Classe B (ex: Exame)">
+                <button id="criarAssociacaoBtn">Criar Associação</button>
+            </div>
+            
+            <div class="current-association" id="currentAssociation" style="display: none;">
+                <h3>Associação: <span id="assocNome">Paciente → Exame</span></h3>
+                
+                <!-- Adicionar Atributos ao Vínculo -->
+                <div class="attribute-controls">
+                    <input type="text" id="attrName" placeholder="Nome do atributo (ex: data)">
+                    <input type="text" id="attrType" placeholder="Tipo (ex: Date)">
+                    <button id="addAttributeBtn">Adicionar Atributo</button>
+                </div>
+                
+                <div class="attribute-list">
+                    <h4>Atributos do Vínculo:</h4>
+                    <ul id="attributesList"></ul>
+                </div>
+                
+                <div class="promotion-alert" id="promotionAlert" style="display: none;">
+                    <div class="alert-content">
+                        <span class="alert-icon">💡</span>
+                        <div>
+                            <strong>Classe de Associação Recomendada!</strong>
+                            <p>Este vínculo possui atributos próprios e deve ser promovido a uma classe.</p>
+                            <button id="promoverBtn">Promover para Classe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualização Comparativa -->
+        <div class="comparison-view">
+            <!-- VISÃO ANTES -->
+            <div class="view-panel">
+                <h2>Antes</h2>
+                <div class="subtitle">Associação Simples</div>
+                <div class="diagram-container">
+                    <svg id="diagramAntes" width="400" height="200"></svg>
+                </div>
+                <div class="explanation">
+                    <p><strong>Problemas identificados:</strong></p>
+                    <ul id="problemasAntes"></ul>
+                </div>
+            </div>
+
+            <!-- VISÃO DEPOIS -->
+            <div class="view-panel">
+                <h2>Depois</h2>
+                <div class="subtitle">Com Classe de Associação</div>
+                <div class="diagram-container">
+                    <svg id="diagramDepois" width="400" height="200"></svg>
+                </div>
+                <div class="explanation">
+                    <p><strong>Benefícios alcançados:</strong></p>
+                    <ul id="beneficiosDepois"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemplos Práticos -->
+        <div class="examples-panel">
+            <h3>💡 Exemplos Práticos</h3>
+            <div class="examples-grid">
+                <div class="example-card" data-a="Paciente" data-b="Exame" data-attrs="data:Date,preparo:string,resultado:string">
+                    <strong>Paciente - Exame</strong>
+                    <p>Atributos: data, preparo, resultado</p>
+                    <button class="load-example-btn">Carregar</button>
+                </div>
+                <div class="example-card" data-a="Aluno" data-b="Curso" data-attrs="dataInscricao:Date,notaFinal:double,frequencia:double">
+                    <strong>Aluno - Curso</strong>
+                    <p>Atributos: dataInscricao, notaFinal, frequencia</p>
+                    <button class="load-example-btn">Carregar</button>
+                </div>
+                <div class="example-card" data-a="Funcionário" data-b="Projeto" data-attrs="dataAlocacao:Date,cargaHoraria:int,funcao:string">
+                    <strong>Funcionário - Projeto</strong>
+                    <p>Atributos: dataAlocacao, cargaHoraria, função</p>
+                    <button class="load-example-btn">Carregar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklist de Sinais -->
+        <div class="checklist-panel">
+            <h3>📋 Checklist: Quando promover para Classe de Associação?</h3>
+            <div class="checklist-grid">
+                <div class="checklist-item" data-criteria="atributos">
+                    <input type="checkbox" id="check1" disabled>
+                    <label for="check1">📊 Possui atributos próprios</label>
+                </div>
+                <div class="checklist-item" data-criteria="regras">
+                    <input type="checkbox" id="check2" disabled>
+                    <label for="check2">⚖️ Tem regras específicas</label>
+                </div>
+                <div class="checklist-item" data-criteria="ciclo">
+                    <input type="checkbox" id="check3" disabled>
+                    <label for="check3">🔄 Ciclo de vida independente</label>
+                </div>
+                <div class="checklist-item" data-criteria="identidade">
+                    <input type="checkbox" id="check4" disabled>
+                    <label for="check4">🆔 Identidade própria</label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-associacao.js"></script>
+</body>
+</html>

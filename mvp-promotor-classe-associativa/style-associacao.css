@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Controles */
+.controls {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.input-group input {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#criarAssociacaoBtn, #addAttributeBtn {
+    background: #4ecdc4;
+    color: white;
+}
+
+#criarAssociacaoBtn:hover, #addAttributeBtn:hover {
+    background: #3dbeb5;
+    transform: translateY(-2px);
+}
+
+/* Associação Atual */
+.current-association h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.attribute-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.attribute-controls input {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.attribute-list {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.attribute-list h4 {
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+#attributesList {
+    list-style: none;
+}
+
+#attributesList li {
+    background: white;
+    margin: 5px 0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border-left: 4px solid #4ecdc4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-attr {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+/* Alerta de Promoção */
+.promotion-alert {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.alert-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.alert-icon {
+    font-size: 2em;
+}
+
+#promoverBtn {
+    background: #ff6b6b;
+    color: white;
+    margin-top: 10px;
+}
+
+#promoverBtn:hover {
+    background: #ff5252;
+}
+
+/* Visualização Comparativa */
+.comparison-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.view-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.view-panel h2 {
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.diagram-container {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explanation ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.explanation li {
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.explanation li:before {
+    content: "• ";
+    color: #4ecdc4;
+    font-weight: bold;
+}
+
+/* Exemplos Práticos */
+.examples-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.examples-panel h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.example-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4ecdc4;
+    transition: all 0.3s ease;
+}
+
+.example-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.load-example-btn {
+    background: #667eea;
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.load-example-btn:hover {
+    background: #5a6fd8;
+}
+
+/* Checklist */
+.checklist-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.checklist-panel h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.checklist-item.checked {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+}
+
+.checklist-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* Classes SVG */
+.class-rect {
+    fill: #bbdefb;
+    stroke: #1976d2;
+    stroke-width: 2;
+    rx: 5;
+}
+
+.class-text {
+    fill: #0d47a1;
+    font-weight: bold;
+    text-anchor: middle;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.association-line {
+    stroke: #666;
+    stroke-width: 2;
+}
+
+.association-class {
+    fill: #ffe66d;
+    stroke: #ffa000;
+    stroke-width: 2;
+    rx: 5;
+}
+
+.association-class-text {
+    fill: #e65100;
+    font-weight: bold;
+    text-anchor: middle;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.attribute-text {
+    fill: #666;
+    font-size: 12px;
+    text-anchor: middle;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .comparison-view {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .attribute-controls {
+        flex-direction: column;
+    }
+}
