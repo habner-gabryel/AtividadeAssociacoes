@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador: Composição vs Agregação</title>
+    <link rel="stylesheet" href="style-composicao.css">
+</head>
+<body>
+    <header>
+        <h1>Simulador: Composição × Agregação</h1>
+        <p>Clique em "Apagar o Todo" para ver a diferença prática no ciclo de vida!</p>
+    </header>
+
+    <main>
+        <!-- Seletor de Modo -->
+        <div class="mode-selector">
+            <button id="btnComposicao" class="mode-btn active">Modo Composição</button>
+            <button id="btnAgregacao" class="mode-btn">Modo Agregação</button>
+        </div>
+
+        <!-- Explicação do Modo Atual -->
+        <div class="explanation" id="explanation">
+            <h3>💡 Modo <span id="modoNome">Composição</span></h3>
+            <p id="modoDescricao">Na <strong>composição</strong>, as partes NÃO podem existir sem o todo. Ao apagar o todo, as partes serão destruídas.</p>
+        </div>
+
+        <!-- Área de Simulação -->
+        <div class="simulation-area">
+            <!-- Container do Todo -->
+            <div class="todo-container">
+                <div id="todoElement" class="todo">
+                    <h3>Todo</h3>
+                    <div class="todo-example" id="todoExample">🌳 Árvore</div>
+                </div>
+                
+                <!-- Botão Apagar Todo -->
+                <button id="apagarTodoBtn" class="apagar-btn">Apagar o Todo</button>
+            </div>
+
+            <!-- Container das Partes -->
+            <div id="partesContainer" class="partes-container">
+                <!-- Partes serão geradas dinamicamente -->
+            </div>
+        </div>
+
+        <!-- Controles Adicionais -->
+        <div class="controls">
+            <button id="resetBtn">Reiniciar Simulação</button>
+            <button id="mudarExemploBtn">Mudar Exemplo</button>
+        </div>
+
+        <!-- Legendas -->
+        <div class="legends">
+            <div class="legend-item">
+                <div class="legend-color todo-color"></div>
+                <span>Todo (Objeto Principal)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color parte-color"></div>
+                <span>Parte (Componente)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color orfa-color"></div>
+                <span>Parte Órfã (Após Agregação)</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script-composicao.js"></script>
+</body>
+</html>
