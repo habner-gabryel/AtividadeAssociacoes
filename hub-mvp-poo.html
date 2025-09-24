@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de MVPs - Associações em POO</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mvp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .mvp-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mvp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-color: #4ecdc4;
+        }
+
+        .mvp-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .mvp-badge {
+            display: inline-block;
+            background: #4ecdc4;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .mvp-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .mvp-card .description {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .mvp-features {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .mvp-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+
+        .mvp-features li:before {
+            content: "✓ ";
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .activity-info {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .activity-info strong {
+            color: #667eea;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        .quick-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .mvp-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+        }
+
+        /* Efeitos especiais */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Hub de MVPs - POO</h1>
+            <p>Laboratório interativo para explorar associações entre classes em Programação Orientada a Objetos</p>
+        </header>
+
+        <div class="mvp-grid">
+            <!-- MVP 3: Editor de Navegabilidade Mínima -->
+            <div class="mvp-card" onclick="abrirMVP('mvp3')">
+                <div class="mvp-icon">🔁</div>
+                <div class="mvp-badge">MVP 3</div>
+                <h2>Editor de Navegabilidade Mínima</h2>
+                <div class="description">
+                    Ferramenta visual para definir e refinar as direções de associação entre classes, promovendo o mínimo de acoplamento necessário.
+                </div>
+                <div class="activity-info">
+                    <strong>Atividade 4:</strong> Navegabilidade Mínima
+                </div>
+                <ul class="mvp-features">
+                    <li>Seleção interativa de direções de setas</li>
+                    <li>Medidor de complexidade em tempo real</li>
+                    <li>Dicas inteligentes para redução de acoplamento</li>
+                    <li>Visualização gráfica do grafo de classes</li>
+                </ul>
+            </div>
+
+            <!-- MVP 4: Promotor de Classe de Associação -->
+            <div class="mvp-card" onclick="abrirMVP('mvp4')">
+                <div class="mvp-icon">🎯</div>
+                <div class="mvp-badge">MVP 4</div>
+                <h2>Promotor de Classe de Associação</h2>
+                <div class="description">
+                    Identifique quando um vínculo entre classes deve se tornar uma entidade própria, com atributos e ciclo de vida independentes.
+                </div>
+                <div class="activity-info">
+                    <strong>Atividade 5:</strong> Classe de Associação
+                </div>
+                <ul class="mvp-features">
+                    <li>Adição dinâmica de atributos ao vínculo</li>
+                    <li>Detecção automática da necessidade de promoção</li>
+                    <li>Comparação visual Antes/Depois</li>
+                    <li>Checklist interativo de critérios</li>
+                </ul>
+            </div>
+
+            <!-- MVP 5: Simulador de Composição vs Agregação -->
+            <div class="mvp-card" onclick="abrirMVP('mvp5')">
+                <div class="mvp-icon">⚖️</div>
+                <div class="mvp-badge">MVP 5</div>
+                <h2>Simulador de Composição vs Agregação</h2>
+                <div class="description">
+                    Experimente visualmente a diferença crucial entre composição e agregação através da simulação de ciclo de vida.
+                </div>
+                <div class="activity-info">
+                    <strong>Atividade 6:</strong> Composição × Agregação
+                </div>
+                <ul class="mvp-features">
+                    <li>Simulação interativa de "Apagar o Todo"</li>
+                    <li>Múltiplos exemplos do mundo real</li>
+                    <li>Animações que mostram o ciclo de vida</li>
+                    <li>Feedback imediato com explicações</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cards Adicionais para Contexto -->
+        <div class="mvp-grid">
+            <!-- Card de Contexto Educacional -->
+            <div class="mvp-card" style="background: linear-gradient(135deg, #ffe66d 0%, #ff9ff3 100%);">
+                <div class="mvp-icon">📚</div>
+                <div class="mvp-badge">CONTEXTO</div>
+                <h2>Sobre as Atividades</h2>
+                <div class="description">
+                    Estes MVPs foram desenvolvidos para apoiar o workshop "Associações entre Classes" da disciplina de Programação Orientada a Objetos.
+                </div>
+                <ul class="mvp-features">
+                    <li>Baseado em material didático específico</li>
+                    <li>Validação argumentativa e debate</li>
+                    <li>Abordagem prática e visual</li>
+                    <li>Foco em conceitos fundamentais de POO</li>
+                </ul>
+            </div>
+
+            <!-- Card de Instruções -->
+            <div class="mvp-card" style="background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); color: white;">
+                <div class="mvp-icon">💡</div>
+                <div class="mvp-badge">INSTRUÇÕES</div>
+                <h2>Como Usar</h2>
+                <div class="description" style="color: rgba(255,255,255,0.9);">
+                    Clique em qualquer card acima para abrir o MVP correspondente. Explore as funcionalidades e utilize os exemplos práticos.
+                </div>
+                <ul class="mvp-features" style="color: rgba(255,255,255,0.9);">
+                    <li>Clique nos cards para abrir os MVPs</li>
+                    <li>Experimente com diferentes cenários</li>
+                    <li>Use os exemplos pré-definidos</li>
+                    <li>Compare os resultados visualmente</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Desenvolvido para a disciplina de Programação Orientada a Objetos - UTFPR</p>
+            <div class="quick-nav">
+                <a href="#mvp3" class="nav-btn" onclick="abrirMVP('mvp3')">🔁 Navegabilidade</a>
+                <a href="#mvp4" class="nav-btn" onclick="abrirMVP('mvp4')">🎯 Classe Associação</a>
+                <a href="#mvp5" class="nav-btn" onclick="abrirMVP('mvp5')">⚖️ Composição/Agregação</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function abrirMVP(mvpId) {
+            const mvpFiles = {
+                'mvp3': 'mvp-editor-nav-minima/index.html',
+                'mvp4': 'mvp-promotor-classe-associativa/classe-associacao.html',
+                'mvp5': 'mvp-simulador-composicao-agregacao/composicao-agregacao.html'
+            };
+
+            const fileName = mvpFiles[mvpId];
+            
+            if (fileName) {
+                // Verifica se o arquivo existe antes de abrir
+                window.open(fileName, '_blank');
+            } else {
+                alert('MVP em desenvolvimento! Em breve disponível.');
+            }
+        }
+
+        // Efeito de flutuação aleatória nos cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.mvp-card');
+            cards.forEach((card, index) => {
+                // Delay diferente para cada card
+                card.style.animationDelay = (index * 0.5) + 's';
+            });
+        });
+
+        // Feedback visual ao passar o mouse
+        document.querySelectorAll('.mvp-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Teclas de atalho
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case '1': abrirMVP('mvp3'); break;
+                case '2': abrirMVP('mvp4'); break;
+                case '3': abrirMVP('mvp5'); break;
+                case 'h': window.location.href = 'hub-mvp-poo.html'; break;
+            }
+        });
+    </script>
+</body>
+</html>
