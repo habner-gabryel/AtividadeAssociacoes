@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Navegabilidade Mínima</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Editor de Navegabilidade Mínima</h1>
+        <p>Clique nas setas para alternar a direção. Objetivo: reduzir ao mínimo essencial!</p>
+    </header>
+
+    <main>
+        <!-- Painel de Controle -->
+        <div class="controls">
+            <input type="text" id="className" placeholder="Nome da Classe (ex: Produto)">
+            <button id="addClassBtn">Adicionar Classe</button>
+            <div class="stats">
+                <span>Setas no diagrama: <strong id="arrowCount">0</strong></span>
+                <span>Densidade: <strong id="density">0.00</strong></span>
+            </div>
+            <button id="resetBtn">Reiniciar Diagrama</button>
+        </div>
+
+        <!-- Área do Diagrama -->
+        <div class="canvas-container">
+            <svg id="graphCanvas" width="1000" height="600"></svg>
+        </div>
+
+        <!-- Painel de Ajuda -->
+        <div class="help-panel" id="helpPanel">
+            <h3>💡 Dica de Navegabilidade</h3>
+            <p id="helpText">Adicione classes e conexões para começar.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
